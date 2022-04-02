@@ -50,6 +50,7 @@ void Game::play()
 		draw();
 		usleep(300000);
 		int ch = wgetch(window_);
+		flushinp();
 		switch (snake_.move(ch, fruit_position_)) {
 			case -1:
 				is_done = false;
