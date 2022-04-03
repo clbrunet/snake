@@ -25,10 +25,12 @@ public:
 	bool getIsDead() const;
 
 	void move(int input, const Vector2Int& fruit_position);
-	bool checkNewHeadPosition(const Vector2Int& new_pos) const;
 
 private:
 	std::deque<SnakePart> parts_;
 	Direction direction_;
 	bool is_dead_;
+
+	void processInput(int input);
+	bool isNewHeadPositionDeath(const Vector2Int& new_pos) const;
 };
