@@ -63,10 +63,18 @@ void Game::play()
 
 void Game::newFruit()
 {
-	Vector2Int pos(rand() % 17 + 1, rand() % 15 + 1);
-	for (const SnakePart& part : snake_.getParts()) {
-		if (pos == part.position) {
-			return newFruit();
+
+	Vector2Int pos;
+	bool is_valid = false;
+	while (is_valid == false) {
+		pos.x = rand() % 17 + 1;
+		pos.y = rand() % 15 + 1;
+		is_valid = true;
+		for (const SnakePart& part : snake_.getParts()) {
+			if (pos == part.position) {
+				is_valid = false;
+				break;
+			}
 		}
 	}
 	fruit_position_ = pos;
