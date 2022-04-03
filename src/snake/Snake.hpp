@@ -22,11 +22,13 @@ public:
 
 	const std::deque<SnakePart>& getParts() const;
 	Direction getDirection() const;
+	bool getIsDead() const;
 
-	int move(int input, const Vector2Int& fruit_position);
-	int checkNewHeadPosition(const Vector2Int& new_pos) const;
+	void move(int input, const Vector2Int& fruit_position);
+	bool checkNewHeadPosition(const Vector2Int& new_pos) const;
 
 private:
 	std::deque<SnakePart> parts_;
 	Direction direction_;
+	bool is_dead_;
 };

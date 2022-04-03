@@ -50,19 +50,14 @@ const WINDOW* Game::getWindow() const
 
 void Game::play()
 {
-	bool is_done = true;
-	while (is_done) {
+	while (snake_.getIsDead() == false) {
 		draw();
 		usleep(300000);
 		int ch = wgetch(window_);
 		flushinp();
-		switch (snake_.move(ch, fruit_position_)) {
-			case -1:
-				is_done = false;
-				break;
-			case 1:
-				newFruit();
-				break;
+		snake_.move(ch, fruit_position_);
+		if (snake_.getParts().front().position == fruit_position_) {
+			newFruit();
 		}
 	}
 }
