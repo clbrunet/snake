@@ -54,7 +54,6 @@ void Game::play()
 		draw();
 		usleep(300000);
 		int ch = wgetch(window_);
-		flushinp();
 		snake_.move(ch, fruit_position_);
 		if (snake_.getParts().front().position == fruit_position_) {
 			newFruit();
