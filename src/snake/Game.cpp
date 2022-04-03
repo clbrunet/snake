@@ -43,6 +43,11 @@ Game::~Game()
 	delwin(window_);
 }
 
+const WINDOW* Game::getWindow() const
+{
+	return window_;
+}
+
 void Game::play()
 {
 	bool is_done = true;
@@ -57,6 +62,7 @@ void Game::play()
 				break;
 			case 1:
 				newFruit();
+				break;
 		}
 	}
 }

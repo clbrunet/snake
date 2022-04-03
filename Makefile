@@ -6,7 +6,7 @@ BUILD_DIR := ./build
 CXX := clang++
 CXXFLAGS := -Wall -Wextra -Werror
 CXXFLAGS += -I./src/
-# CXXFLAGS += -g3
+CXXFLAGS += -g3 -fsanitize=address
 # CXXFLAGS += -DNDEBUG
 LDLIBS := -lncurses
 

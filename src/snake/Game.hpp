@@ -12,6 +12,7 @@ public:
 	Game& operator=(const Game& rhs);
 	~Game();
 
+	const WINDOW* getWindow() const;
 	void play();
 private:
 	static const int height;
