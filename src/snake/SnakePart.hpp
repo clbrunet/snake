@@ -11,6 +11,9 @@ struct SnakePart
 	chtype ch;
 
 	SnakePart(const Vector2Int& position, chtype ch);
+	SnakePart(const SnakePart& src);
+	SnakePart& operator=(const SnakePart& rhs);
+	~SnakePart();
 };
 
 #endif
