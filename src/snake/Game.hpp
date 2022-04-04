@@ -1,4 +1,5 @@
-#pragma once
+#ifndef SNAKE_GAME_HPP
+#define SNAKE_GAME_HPP
 
 #include <curses.h>
 
@@ -26,3 +27,5 @@ private:
 	void newFruit();
 	void draw() const;
 };
+
+#endif

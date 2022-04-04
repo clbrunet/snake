@@ -1,4 +1,5 @@
-#pragma once
+#ifndef SNAKE_SNAKEPART_HPP
+#define SNAKE_SNAKEPART_HPP
 
 #include <curses.h>
 
@@ -11,3 +12,5 @@ struct SnakePart
 
 	SnakePart(const Vector2Int& position, chtype ch);
 };
+
+#endif

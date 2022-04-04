@@ -1,4 +1,5 @@
-#pragma once
+#ifndef SNAKE_VECTOR2INT_HPP
+#define SNAKE_VECTOR2INT_HPP
 
 struct Vector2Int
 {
@@ -14,3 +15,5 @@ struct Vector2Int
 	bool operator==(const Vector2Int& rhs) const;
 	bool operator!=(const Vector2Int& rhs) const;
 };
+
+#endif

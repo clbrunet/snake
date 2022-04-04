@@ -1,4 +1,5 @@
-#pragma once
+#ifndef SNAKE_SNAKE_HPP
+#define SNAKE_SNAKE_HPP
 
 #include <deque>
 
@@ -34,3 +35,5 @@ private:
 	void processInput(int input);
 	bool isNewHeadPositionDeath(const Vector2Int& new_pos) const;
 };
+
+#endif
