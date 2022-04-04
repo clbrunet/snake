@@ -12,11 +12,12 @@ public:
 	Game& operator=(const Game& rhs);
 	~Game();
 
+	static const int board_height;
+	static const int board_width;
+
 	const WINDOW* getWindow() const;
 	void play();
 private:
-	static const int height;
-	static const int width;
 
 	WINDOW *window_;
 	Snake snake_;

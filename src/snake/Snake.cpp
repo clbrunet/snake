@@ -1,5 +1,7 @@
 #include <curses.h>
+#include <cassert>
 
+#include "snake/Game.hpp"
 #include "snake/Snake.hpp"
 
 Snake::Snake() :
@@ -7,9 +9,12 @@ Snake::Snake() :
 	direction_(Direction::Right),
 	is_dead_(false)
 {
-	parts_.push_back(SnakePart(Vector2Int(3, 7), ACS_HLINE)); // TODO: remove hardcoded value
-	parts_.push_back(SnakePart(Vector2Int(2, 7), ACS_HLINE)); // TODO: remove hardcoded value
-	parts_.push_back(SnakePart(Vector2Int(1, 7), ACS_HLINE)); // TODO: remove hardcoded value
+	assert(Game::board_width > 3);
+	assert(Game::board_height > 3);
+
+	for (int i = 1; i <= 3; i++) {
+		parts_.push_front(SnakePart(Vector2Int(i, Game::board_height / 2), ACS_HLINE));
+	}
 }
 
 Snake::Snake(const Snake& src) :
@@ -134,7 +139,7 @@ bool Snake::isNewHeadPositionDeath(const Vector2Int& new_pos) const
 	if (new_pos.x <= 0 || new_pos.y <= 0) {
 		return false;
 	}
-	if (new_pos.x > 17 || new_pos.y > 15) {
+	if (new_pos.x > Game::board_width || new_pos.y > Game::board_height) {
 		return false;
 	}
 	for (std::deque<SnakePart>::const_iterator cit = parts_.cbegin();

@@ -3,15 +3,14 @@
 #include <cstdlib>
 #include <ctime>
 
-
 #include "snake/Game.hpp"
 
-const int Game::height = 15;
-const int Game::width = 17;
+const int Game::board_height = 15;
+const int Game::board_width = 17;
 
 Game::Game() :
-	window_(newwin(height + 2, width + 2,
-				LINES / 2 - (height + 2) / 2, COLS / 2 - (width + 2) / 2)),
+	window_(newwin(board_height + 2, board_width + 2,
+				LINES / 2 - (board_height + 2) / 2, COLS / 2 - (board_width + 2) / 2)),
 	snake_(Snake()),
 	fruit_position_(Vector2Int(10, 7))
 {
@@ -67,8 +66,8 @@ void Game::newFruit()
 	Vector2Int pos;
 	bool is_valid = false;
 	while (is_valid == false) {
-		pos.x = rand() % 17 + 1;
-		pos.y = rand() % 15 + 1;
+		pos.x = rand() % board_width + 1;
+		pos.y = rand() % board_height + 1;
 		is_valid = true;
 		for (const SnakePart& part : snake_.getParts()) {
 			if (pos == part.position) {
